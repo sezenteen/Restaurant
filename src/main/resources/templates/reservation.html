@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeliciousEats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<!-- Navbar -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4">
+        <div class="text-2xl font-extrabold text-gray-800">
+            <a href="/">Delicious<span class="text-blue-500">Eats</span></a>
+        </div>
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-6">
+            <a th:href="@{/}" class="text-gray-700 hover:text-blue-500 font-medium">Нүүр хуудас</a>
+            <a th:href="@{/menu}" class="text-gray-700 hover:text-blue-500 font-medium">Меню</a>
+            <a th:href="@{/about}" class="text-gray-700 hover:text-blue-500 font-medium">Бидний тухай</a>
+            <a th:href="@{/reservation}" class="text-blue-500 font-medium">Захиалга</a>
+            <a th:href="@{/contact}" class="text-gray-700 hover:text-blue-500 font-medium">Холбоо барих</a>
+        </nav>
+        <!-- Hamburger Menu for Mobile -->
+        <div class="md:hidden">
+            <button id="menu-btn">
+                <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden bg-gray-100 md:hidden">
+        <a th:href="@{/}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Нүүр хуудас</a>
+        <a th:href="@{/menu}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Меню</a>
+        <a th:href="@{/about}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Бидний тухай</a>
+        <a th:href="@{/reservation}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Захиалга</a>
+        <a th:href="@{/contact}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Холбоо барих</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-cover bg-center h-96" style="background-image: url('https://source.unsplash.com/1600x900/?dining,table');">
+    <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
+        <h1 class="text-white text-4xl font-extrabold">Захиалга</h1>
+    </div>
+</section>
+
+<!-- Reservation Form -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-6">Ширээ захиалах</h2>
+        <p class="text-lg text-gray-700 text-center mb-12">
+            Бид таныг хүлээн авч байгаадаа баяртай байна! Ширээгээ захиалахын тулд доорх маягтыг бөглөнө үү.
+        </p>
+        <form action="/submit-reservation" method="POST" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <label for="name" class="block text-gray-700 font-medium">Овог, Нэр</label>
+                    <input type="text" id="name" name="name" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-medium">И-майл</label>
+                    <input type="email" id="email" name="email" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 font-medium">Утас</label>
+                    <input type="tel" id="phone" name="phone" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your phone number" required>
+                </div>
+                <div>
+                    <label for="date" class="block text-gray-700 font-medium">Өдөр</label>
+                    <input type="date" id="date" name="date" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                </div>
+                <div>
+                    <label for="time" class="block text-gray-700 font-medium">Цаг</label>
+                    <input type="time" id="time" name="time" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                </div>
+                <div>
+                    <label for="guests" class="block text-gray-700 font-medium">Зочидын тоо</label>
+                    <input type="number" id="guests" name="guests" min="1" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter number of guests" required>
+                </div>
+            </div>
+            <div>
+                <label for="special-requests" class="block text-gray-700 font-medium">Онцгой хүсэлт</label>
+                <textarea id="special-requests" name="special-requests" rows="4" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter any special requests"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium">
+                    Захиалах
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-700 py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <p>&copy; 2024 DeliciousEats. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Toggle mobile menu
+    document.getElementById('menu-btn').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+</script>
+</body>
+</html>

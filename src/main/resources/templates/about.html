@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - DeliciousEats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<!-- Navbar -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4">
+    <div class="text-2xl font-extrabold text-gray-800">
+      <a href="/">Delicious<span class="text-blue-500">Eats</span></a>
+    </div>
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6">
+      <a th:href="@{/}" class="text-gray-700 hover:text-blue-500 font-medium">Нүүр хуудас</a>
+      <a th:href="@{/menu}" class="text-gray-700 hover:text-blue-500 font-medium">Меню</a>
+      <a th:href="@{/about}" class="text-blue-500 font-medium">Бидний тухай</a>
+      <a th:href="@{/reservation}" class="text-gray-700 hover:text-blue-500 font-medium">Захиалга</a>
+      <a th:href="@{/contact}" class="text-gray-700 hover:text-blue-500 font-medium">Холбоо барих</a>
+    </nav>
+    <!-- Hamburger Menu for Mobile -->
+    <div class="md:hidden">
+      <button id="menu-btn">
+        <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden bg-gray-100 md:hidden">
+    <a th:href="@{/}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Нүүр хуудас</a>
+    <a th:href="@{/menu}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Меню</a>
+    <a th:href="@{/about}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Бидний тухай</a>
+    <a th:href="@{/reservation}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Захиалга</a>
+    <a th:href="@{/contact}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Холбоо барих</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-cover bg-center h-96" style="background-image: url('https://source.unsplash.com/1600x900/?restaurant,food');">
+  <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
+    <h1 class="text-white text-4xl font-extrabold">DeliciousEats Бол</h1>
+  </div>
+</section>
+
+<!-- About Content -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-6">Бидний тухай</h2>
+    <p class="text-lg text-gray-700 text-center mb-12">
+      DeliciousEats бол ресторанаас илүү бөгөөд энэ бол туршлага юм. 2010 онд үүсгэн байгуулагдсан цагаасаа хойш бид дээд зэргийн чанартай хоолоор үйлчлэхийг зорьж ирсэн.
+      шинэхэн орцоор хийгдсэн бөгөөд дэлхийн өнцөг булан бүрээс ирсэн амтаас санаа авсан. Улаанбаатар хотын төвд байрладаг тул бид дуртай нь гэдгээрээ бахархаж байна
+      хол ойрын хоолонд дурлагсдад зориулсан цэг.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <img src="https://source.unsplash.com/600x400/?chef,kitchen" alt="Our Team" class="rounded-lg shadow-md">
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
+        <p class="text-gray-700">
+          DeliciousEats-ийн эрхэм зорилго бол зочдод мартагдашгүй хоолны туршлагыг бий болгох явдал юм. Манай шинэлэг цэснээс эхлээд бидний зочломтгой уур амьсгал хүртэл,
+          Бүх нарийн ширийн зүйл нь таны мэдрэмжийг баясгах зорилготой юм. Та романтик оройн зоог, гэр бүлийн баяр эсвэл түргэн хоол идэж байгаа эсэхээс үл хамааран бидний зорилго бол таны хоолыг онцгой болгох явдал юм.
+        </p>
+        <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Бидний онцлог</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li>Шинэ, өндөр чанартай найрлага</li>
+          <li>Харилцагчийн онцгой үйлчилгээ</li>
+          <li>Олон нийтийн оролцоо, дэмжлэг</li>
+          <li>Тогтвортой байдлын төлөөх амлалт</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-extrabold text-gray-800 mb-8">Манай үнэлгээ</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <p class="text-gray-700">"Миний хэзээ нэгэн цагт идэж байсан хамгийн сайхан хоолны туршлага! Хоол нь гайхалтай байсан, ажилтнууд нь үнэхээр зочломтгой байсан."</p>
+        <span class="block mt-4 font-bold text-gray-800">- Сараа, Үйлчлүүлэгч</span>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <p class="text-gray-700">"Би гэр бүлийнхэнтэйгээ энд ирэх дуртай. Уур амьсгал нь үнэхээр тухтай, цэсэнд хүн бүрт тохирсон зүйл бий!"</p>
+        <span class="block mt-4 font-bold text-gray-800">- Батболд, Үйлчлүүлэгч</span>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <p class="text-gray-700">"Энэ бол миний баяр тэмдэглэх дуртай газар. Тэд хэзээ ч урмыг хугалдаггүй!"</p>
+        <span class="block mt-4 font-bold text-gray-800">- Энхжин, Үйлчлүүлэгч</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-700 py-6">
+  <div class="my-8 text-center text-sm text-gray-600">
+    &copy; 2024 DeliciousEats. Бүх эрх хуулиар хамгаалагдсан.
+  </div>
+</footer>
+
+<script>
+  // Toggle mobile menu
+  document.getElementById('menu-btn').addEventListener('click', function () {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>
+</body>
+</html>

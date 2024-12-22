@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - DeliciousEats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<!-- Navbar -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4">
+    <div class="text-2xl font-extrabold text-gray-800">
+      <a href="/">Delicious<span class="text-blue-500">Eats</span></a>
+    </div>
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6">
+      <a th:href="@{/}" class="text-gray-700 hover:text-blue-500 font-medium">Нүүр хуудас</a>
+      <a th:href="@{/menu}" class="text-blue-500 font-medium">Меню</a>
+      <a th:href="@{/about}" class="text-gray-700 hover:text-blue-500 font-medium">Бидний тухай</a>
+      <a th:href="@{/reservation}" class="text-gray-700 hover:text-blue-500 font-medium">Захиалга</a>
+      <a th:href="@{/contact}" class="text-gray-700 hover:text-blue-500 font-medium">Холбоо барих</a>
+    </nav>
+    <!-- Hamburger Menu for Mobile -->
+    <div class="md:hidden">
+      <button id="menu-btn">
+        <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden bg-gray-100 md:hidden">
+    <a th:href="@{/}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Нүүр хуудас</a>
+    <a th:href="@{/menu}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Меню</a>
+    <a th:href="@{/about}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Бидний тухай</a>
+    <a th:href="@{/reservation}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Захиалга</a>
+    <a th:href="@{/contact}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Холбоо барих</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-cover bg-center h-96" style="background-image: url('https://source.unsplash.com/1600x900/?restaurant,food');">
+  <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
+    <h1 class="text-white text-4xl font-extrabold">Меню</h1>
+  </div>
+</section>
+
+<!-- Menu Section -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-12">Манай онцлох хоолнууд</h2>
+
+    <!-- Categories -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Dish 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://source.unsplash.com/400x300/?burger" alt="Burger" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Сонгодог Cheeseburger</h3>
+          <p class="text-gray-600 mt-2">Чеддар бяслаг, шанцайны ургамал, улаан лооль, бидний нэрийн амтлагчаар амталсан үхрийн махны шүүслэг пати.</p>
+          <p class="text-blue-500 font-bold mt-4">35,000₮</p>
+        </div>
+      </div>
+      <!-- Dish 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Цөцгийтэй Альфредо паста</h3>
+          <p class="text-gray-600 mt-2">Баян, өтгөн Альфредо соусыг төгс чанасан феттучин дээр үйлчилнэ.</p>
+          <p class="text-blue-500 font-bold mt-4">45,000₮</p>
+        </div>
+      </div>
+      <!-- Dish 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://source.unsplash.com/400x300/?pizza" alt="Pizza" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Маргарита пицца</h3>
+          <p class="text-gray-600 mt-2">Үйрмэг царцдас дээр шинэ лаврын, моцарелла, хурц улаан лоолийн соус.</p>
+          <p class="text-blue-500 font-bold mt-4">40,000₮</p>
+        </div>
+      </div>
+      <!-- Dish 4 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://source.unsplash.com/400x300/?dessert" alt="Dessert" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Шоколадтай лава бялуу</h3>
+          <p class="text-gray-600 mt-2">Халуун шоколадтай бялууг ванилийн зайрмагтай хамт.</p>
+          <p class="text-blue-500 font-bold mt-4">25,000₮</p>
+        </div>
+      </div>
+      <!-- Dish 5 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://source.unsplash.com/400x300/?salad" alt="Salad" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Цезарь салат</h3>
+          <p class="text-gray-600 mt-2">Цезарийн амтлагчаар жигнэсэн ромайн салат, Пармезан бяслаг, croutons.</p>
+          <p class="text-blue-500 font-bold mt-4">30,000₮</p>
+        </div>
+      </div>
+      <!-- Dish 6 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://source.unsplash.com/400x300/?coffee" alt="Coffee" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Signature Капучино</h3>
+          <p class="text-gray-600 mt-2">Хилэн уураар чанасан сүү, хөөсөөр дүүргэсэн баян эспрессо.</p>
+          <p class="text-blue-500 font-bold mt-4">12,000₮</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-700 py-6">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p>&copy; 2024 DeliciousEats. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Toggle mobile menu
+  document.getElementById('menu-btn').addEventListener('click', function () {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>
+</body>
+</html>
