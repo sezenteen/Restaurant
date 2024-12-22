@@ -20,7 +20,7 @@ public class CategoryControllerApi {
 
     @PostMapping("/api/category")
     public Category addCategory(@RequestBody Category category){
-        return categoryService.craeteCategory(category);
+        return categoryService.createCategory(category);
     }
     @PostMapping("/api/categories")
     public List<Category> addCategories(@RequestBody List<Category> categories){

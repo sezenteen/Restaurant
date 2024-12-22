@@ -58,7 +58,7 @@ public class CategoryController {
         if (result.hasErrors()) {
             return "category/category-form";
         }
-        categoryService.craeteCategory(category);
+        categoryService.createCategory(category);
         return "redirect:/categories";
     }
 
@@ -107,4 +107,3 @@ public class CategoryController {
         return "category/categories";
     }
 }
-

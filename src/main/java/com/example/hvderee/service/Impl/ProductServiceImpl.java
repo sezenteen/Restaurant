@@ -15,6 +15,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findByProductDescription(String name) {
+        return List.of();
+    }
+
+    @Override
     public List<Product> getAllProducts() {
         return List.of();
     }

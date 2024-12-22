@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface ProductService {
     List<Product> findByCategoryId(Long categoryId);
+    List<Product> findByProductDescription(String name);
     List<Product> getAllProducts();
     Product createProduct(Product product);
     List<Product> createProducts(List<Product> products);
@@ -14,3 +15,4 @@ public interface ProductService {
     Product updateProduct(Product product);
     String deleteProductById(Long id);
 }
+
