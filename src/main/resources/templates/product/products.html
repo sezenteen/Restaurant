@@ -7,19 +7,56 @@
 </head>
 <body class="bg-gray-100">
 
-<div class="max-w-6xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">Хоолны жагсаалт</h2>
+<!-- Navbar -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4">
+        <div class="text-2xl font-extrabold text-gray-800">
+            <a href="/">Delicious<span class="text-blue-500">Eats</span></a>
+        </div>
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-6">
+            <a th:href="@{/}" class="text-gray-700 hover:text-blue-500 font-medium">Нүүр хуудас</a>
+            <a th:href="@{/products}" class="text-gray-700 hover:text-blue-500 font-medium">Меню</a>
+            <a th:href="@{/about}" class="text-gray-700 hover:text-blue-500 font-medium">Бидний тухай</a>
+            <a th:href="@{/reservation}" class="text-gray-700 hover:text-blue-500 font-medium">Захиалга</a>
+            <a th:href="@{/contact}" class="text-gray-700 hover:text-blue-500 font-medium">Холбоо барих</a>
+            <a th:href="@{/login}" class="text-gray-700 hover:text-blue-500 font-medium">Нэвтрэх</a>
+        </nav>
+        <!-- Hamburger Menu for Mobile -->
+        <div class="md:hidden">
+            <button id="menu-btn">
+                <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden bg-gray-100 md:hidden">
+        <a th:href="@{/}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Нүүр хуудас</a>
+        <a th:href="@{/menu}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Меню</a>
+        <a th:href="@{/about}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Бидний тухай</a>
+        <a th:href="@{/reservation}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Захиалга</a>
+        <a th:href="@{/contact}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Холбоо барих</a>
+        <a th:href="@{/login}" class="text-gray-700 hover:text-blue-500 font-medium">Нэвтрэх</a>
+    </nav>
+</header>
+
+
+<div class="max-w-6xl mx-auto p-8 bg-white shadow-xl rounded-lg mt-10">
+    <h2 class="text-4xl font-bold text-gray-800 mb-6">Меню</h2>
     <nav class="text-sm text-gray-500 mb-6">
         <ol class="list-reset flex space-x-2">
             <li>
                 <a class="text-blue-600 hover:underline" href="/">Нүүр хуудас</a>
                 <span>/</span>
             </li>
-            <li class="text-gray-500">Хоолнууд</li>
+            <li class="text-gray-500">Бүх меню</li>
         </ol>
     </nav>
 
-    <div class="mb-6">
+    <div class="mb-6 flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-gray-700">Хоолны жагсаалт</h3>
         <a
                 class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 th:href="@{/products/new}">
@@ -29,36 +66,38 @@
 
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white rounded-lg border border-gray-300 shadow-sm">
-            <thead class="bg-gray-100">
+            <thead class="bg-gray-200">
             <tr>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">ID</th>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Нэр</th>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Үнэ</th>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Дэлгэрэнгүй</th>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Үүсгэсэн огноо</th>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Ангилал</th>
-                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Үйлдэл</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">ID</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Нэр</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Үнэ</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Дэлгэрэнгүй</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Үүсгэсэн огноо</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Ангилал</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Үйлдэл</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="product : ${products}" class="border-b hover:bg-gray-50">
-                <td class="px-6 py-4 text-sm text-gray-700" th:text="${product.id}"></td>
-                <td class="px-6 py-4 text-sm text-gray-700" th:text="${product.name}"></td>
-                <td class="px-6 py-4 text-sm text-gray-700" th:text="${product.price}"></td>
-                <td class="px-6 py-4 text-sm text-gray-700" th:text="${product.description}"></td>
-                <td class="px-6 py-4 text-sm text-gray-700" th:text="${product.last_update}"></td>
-                <td class="px-6 py-4 text-sm text-gray-700" th:text="${product.category.getName()}"></td>
-                <td class="px-6 py-4 text-sm text-gray-700">
+                <td class="px-6 py-4 text-sm text-gray-800" th:text="${product.id}"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" th:text="${product.name}"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" th:text="${product.price} + '₮'"></td>
+                <td class="px-6 py-4 text-sm text-gray-600" th:text="${product.description}"></td>
+                <td class="px-6 py-4 text-sm text-gray-600" th:text="${product.last_update}"></td>
+                <td class="px-6 py-4 text-sm text-gray-600" th:text="${product.category.getName()}"></td>
+                <td class="px-6 py-4 text-sm flex space-x-2">
                     <a
-                            class="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            class="px-3 py-1 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             th:href="@{/products/edit/{id}(id=${product.id})}">
-                        Edit
+                        Засах
                     </a>
-                    <a
-                            class="ml-2 px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
-                            th:href="@{/products/delete/{id}(id=${product.id})}">
-                        Delete
-                    </a>
+                    <form th:action="@{/products/delete/{id}(id=${product.id})}" method="post" onsubmit="return confirm('Та энэ хоолыг устгахдаа итгэлтэй байна уу?')">
+                        <button
+                                type="submit"
+                                class="px-3 py-1 bg-red-500 text-white rounded-md shadow hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+                            Устгах
+                        </button>
+                    </form>
                 </td>
             </tr>
             </tbody>

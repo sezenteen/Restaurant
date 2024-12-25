@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @Controller
@@ -32,17 +31,6 @@ class ProductController {
         return modelAndView;
     }
 
-//    @GetMapping("/products/{id}")
-//    public String productByCategory(@PathVariable("id") Long id, Model model) {
-//        Optional<Optional<Category>> category = Optional.ofNullable(categoryService.getCategoryById(id));
-//        if (category.isEmpty()) {
-//            return "redirect:/products?error=CategoryNotFound";
-//        }
-//        model.addAttribute("select_category", category.get());
-//        model.addAttribute("categories", categoryService.getAllCategories());
-//        model.addAttribute("products", productService.findByCategoryId(id));
-//        return "/category/category";
-//    }
 
     @GetMapping("/products/{id}")
     public String productsByCategory(@PathVariable("id") Long id, Model model) {
